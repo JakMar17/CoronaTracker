@@ -1,0 +1,110 @@
+<ng-template #content let-modal id = "content">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{country?.countryName}}</h4>
+
+    <button type="button" class="close" aria-label="Close" (click) = "closeModal();">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+  </div>
+  <div class="modal-body">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col">
+                  <div class="alert alert-secondary">
+                      <div class="row-w-100 noOfCases">
+                          {{country?.sumOfConfirms}}
+                      </div>
+                      <div class="row">
+                          Confirmed
+                      </div>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="alert alert-danger">
+                      <div class="row-w-100 noOfCases">
+                          {{country?.sumOfDeaths}}
+                      </div>
+                      <div class="row">
+                          No. of deaths
+                      </div>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="alert alert-success">
+                      <div class="row-w-100 noOfCases">
+                          {{country?.sumOfRecovers}}
+                      </div>
+                      <div class="row">
+                          No. of recovers
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="row-w-100" style="margin-top: 5%; margin-bottom: 5%;">
+              <div class="progress progress-lg">
+                  <div class="progress-bar bg-success" role="progressbar" [style.width] = "pOfRecovers(country)">
+                      {{country?.pOfRecovers}} %
+                  </div>
+                  <div class="progress-bar bg-warning" role="progressbar" [style.width] = "pInProgress(country)">
+                      {{country?.pInProgress}} %
+                  </div>
+                  <div class="progress-bar bg-danger" role="progressbar" [style.width] = "pOfDeaths(country)">
+                      {{country?.pOfDeaths}} %
+                  </div>
+              </div>
+          </div>
+
+          <div *ngIf = "country?.provinces.length > 1"
+           class="row-w-100 table-responsive" style="margin-top: 5%; margin-bottom: 5%;">
+              <table class="table" style="text-align: center;">
+                  <thead>
+                      <tr>
+                          <th scope="col">
+                              Province
+                          </th>
+                          <th scope="col">
+                              Confirmed
+                          </th>
+                          <th scope="col">
+                              No. of deaths
+                          </th>
+                          <th scope="col">
+                              No. of recovers
+                          </th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor = "let province of country.provinces">
+                          <td>
+                              <div class="row-w-100">
+                                  {{province?.provinceName}}
+                              </div>
+                          </td>
+                          <td>
+                              <div class="row-w-100 number">
+                                  {{province?.confirmed}}
+                              </div>
+                          </td>
+                          <td>
+                              <div class="row-w-100 number">
+                                  {{province?.deaths}}
+                              </div>
+                          </td>
+                          <td>
+                              <div class="row-w-100 number">
+                                  {{province?.recovered}}
+                              </div>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</ng-template>
+

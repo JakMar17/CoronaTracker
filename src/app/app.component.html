@@ -1,0 +1,81 @@
+<head>
+    <style>
+        .navbar-brand {
+            font-size: 150%;
+        }
+        .hamburger-menu {
+            font-size: 120%;
+            color: aliceblue;
+        }
+        .odmik {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+        .vertical-align {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+
+$('#sidebarCollapse').on('click', function () {
+    $('#sidebar').toggleClass('active');
+});
+
+});
+    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+
+
+    <div class="container-fluid">
+        <div class="row" style="background-color: var(--primary);">
+            <div class="col odmik vertical-align" style="margin-left: 2%;">
+                <!-- <div class="hamburger-menu">
+                    <i class="fas fa-bars" [routerLink]="['/converter']"></i>
+                </div> -->
+            </div>
+            <div class="col odmik">
+                <div style = "text-align: center;">
+                    <div class = "navbar-brand" style="color: aliceblue;" [routerLink]="['/']">
+                        <i class="fas fa-procedures" style="height: 1.8em;"> </i>
+                        CoronaTracker
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="height: 5ex;"></div>
+
+    <router-outlet></router-outlet>
+
+<!-- <footer class="page-footer footer font-small pt-4">
+    <div class="container-fluid">
+        <div class="col-h-100" style="text-align: center;">
+            <div class="row-w-100" style="text-align: center; color: aliceblue;">
+                APTsystems
+            </div>
+        </div>
+    </div>
+</footer> -->
+
+<!-- Footer -->
+<footer class="page-footer font-small dark">
+    <hr>
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" style="color: aliceblue;">
+        © 2020 Jakob Marušič<br>
+        Powered by 
+        <a href="https://github.com/ExpDev07/coronavirus-tracker-api" target="_blank" style="color: aliceblue;">coronavirus-tracker API.</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->

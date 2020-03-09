@@ -1,0 +1,32 @@
+.wallpaperMap {
+    background-image: url("/assets/images/world.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.noOfCases {
+    text-align: right;
+    font-size: 300%;
+}
+
+.progress-lg{
+    height: 2em;
+}
+
+.number {
+    text-align: right;
+}
+
+.margin {
+    margin-right: 5%; 
+    margin-left: 60%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+@media (max-width: 775px) { 
+    .margin {
+        margin-left: 0%;
+        margin-right: 5%;
+    }
+}

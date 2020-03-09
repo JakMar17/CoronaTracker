@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+$primary: #121619;
+$success: #86DB41;
+$danger: #680114;
+$secondary: #ECA72C;
+$info: #12B783;
+
+:root {
+    --primary: #121619;
+    --success: #86DB41;
+    --danger: #680114;
+    --secondary: #ECA72C;
+    --info: #12B783;
+  }
+
+.rising {
+    color: $success;
+}
+
+.falling {
+    color: $danger;
+}
+
+.vertical{
+    margin-top:50%;
+}
+
+.dropdown-menu.dropdown-menu-wide {
+    min-width: 100%;
+    text-align: center;
+  }
+
+.alert-success {
+  background-color: $success;
+}
+
+.btn-clear {
+    background-color: white;
+    border-color: $primary;
+}
+
+@import "~bootstrap/scss/bootstrap";

@@ -1,0 +1,38 @@
+<table class = "table">
+    <!-- <div class="col">
+        {{confirmed?.latest}}
+    </div> -->
+    <tbody>
+        <tr>
+            <th scope="col" (click) = "sortByName()">
+                Location
+            </th>
+            <th scope="col" style="text-align: right;" (click) = "sortByNumber()">
+                No. of recovers
+            </th>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr *ngFor = "let country of casesByCountry" (click) = "clickAndOpen(country)">
+            <td>
+                <div class="row">
+                    <div class = "col">
+                        {{country?.countryName}}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="row-w-100">
+                    <div class="col" style="text-align: right;">
+                        {{country?.sumOfRecovers}}
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf = "openChild">
+    <app-country-modal [country] = "country" (closeValue) = "onModalClose($event)"></app-country-modal>
+</div>
