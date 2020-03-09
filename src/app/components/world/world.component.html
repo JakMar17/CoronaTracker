@@ -26,6 +26,9 @@
     </div>
 
     <div class="row wallpaperMap h-100" style="margin-left: 5%;">
+    <div class="col">
+        <app-country-modal [country] = "country" (closeValue) = "onModalClose($event)"></app-country-modal> 
+    </div>
     <div class="col margin">
             <div class="row-w-100">
                 <div class="alert alert-secondary" [routerLink] = "['/countries']">
@@ -63,10 +66,10 @@
     <div *ngIf = "openChild">
         <app-country-modal [country] = "country" (closeValue) = "onModalClose($event)"></app-country-modal>
     </div>
+
+    <app-map [casesByCountries] = "casesByCountries"></app-map>
 </div>
 
 <div *ngIf = "spinner">
     <app-spinner></app-spinner>
 </div>
-
-<app-pie-chart></app-pie-chart>

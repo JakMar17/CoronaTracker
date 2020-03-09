@@ -22,6 +22,7 @@ import { CountryModalComponent } from './components/country-modal/country-modal.
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { WorldComponent } from './components/world/world.component';
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { MapComponent } from './components/map/map.component';
 
 // the second parameter 'fr-FR' is optional
 registerLocaleData(localeSl, 'sl-SL');
@@ -37,7 +38,8 @@ registerLocaleData(localeSl, 'sl-SL');
     SpinnerComponent,
     WorldComponent,
     SearchPipePipe,
-    PieChartComponent
+    PieChartComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
