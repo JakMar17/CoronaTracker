@@ -48,7 +48,7 @@ registerLocaleData(localeSl, 'sl-SL');
     NgbModule,
     HttpClientModule,
     FormsModule,
-    GoogleChartsModule  
+    GoogleChartsModule.forRoot('AIzaSyCGmkFP4iiLmzYu2tnB2K9gf_qGE3F8KYk')
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

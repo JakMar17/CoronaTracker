@@ -1,4 +1,4 @@
-<div *ngIf = "!spinner">
+<div *ngIf = "!spinner" class="col" style="height: 80%;">
     <div class="row" style="margin-bottom: 2%;">
     <div class = "col">
         <div class = "dropdown row-w-100 text-center" style="margin-left: 5%; margin-right: 5%;">
@@ -25,49 +25,48 @@
     </div>
     </div>
 
-    <div class="row wallpaperMap h-100" style="margin-left: 5%;">
-    <div class="col">
-        <app-country-modal [country] = "country" (closeValue) = "onModalClose($event)"></app-country-modal> 
-    </div>
-    <div class="col margin">
-            <div class="row-w-100">
-                <div class="alert alert-secondary" [routerLink] = "['/countries']">
-                    <div class="row-w-100 noOfCases">
-                        {{tracker?.confirmed.latest}}
-                    </div>
-                    <div class="row">
-                        Confirmed cases worldwide
+    <div class="row h-100" style="margin-left: 5%; margin-right: 5%;">
+        <div class="col-md-6 col-lg-2 col-xl-2">
+                <div class="row-w-100">
+                    <div class="alert alert-secondary" [routerLink] = "['/countries']">
+                        <div class="row-w-100 noOfCases">
+                            {{tracker?.confirmed.latest}}
+                        </div>
+                        <div class="row-w-100 nameOfCases">
+                            Confirmed cases worldwide
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row-w-100">
-                <div class="alert alert-danger" [routerLink] = "['/countries']">
-                    <div class="row-w-100 noOfCases">
-                        {{tracker?.deaths.latest}}
-                    </div>
-                    <div class="row">
-                        Number of deaths worldwide
-                    </div>
-                </div>
-            </div>
-            <div class="row-w-100">
-                <div class="alert alert-success" [routerLink] = "['/countries']">
-                    <div class="row-w-100 noOfCases">
-                        {{tracker?.recovered.latest}}
-                    </div>
-                    <div class="row">
-                        Number of recovers worldwide
+                <div class="row-w-100">
+                    <div class="alert alert-danger" [routerLink] = "['/countries']">
+                        <div class="row-w-100 noOfCases">
+                            {{tracker?.deaths.latest}}
+                        </div>
+                        <div class="row-w-100 nameOfCases">
+                            Number of deaths worldwide
+                        </div>
                     </div>
                 </div>
-            </div>
-    </div>
+                <div class="row-w-100">
+                    <div class="alert alert-success" [routerLink] = "['/countries']">
+                        <div class="row-w-100 noOfCases">
+                            {{tracker?.recovered.latest}}
+                        </div>
+                        <div class="row-w-100 nameOfCases">
+                            Number of recovers worldwide
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-12 col-lg-10 col-xl-10">
+            <app-map [casesByCountries] = "casesByCountries" [casesByCountries] = "casesByCountries" ></app-map>
+        </div>
     </div>
 
     <div *ngIf = "openChild">
         <app-country-modal [country] = "country" (closeValue) = "onModalClose($event)"></app-country-modal>
     </div>
 
-    <app-map [casesByCountries] = "casesByCountries"></app-map>
 </div>
 
 <div *ngIf = "spinner">

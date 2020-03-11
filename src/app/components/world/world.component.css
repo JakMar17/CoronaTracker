@@ -5,8 +5,11 @@
 }
 
 .noOfCases {
-    text-align: right;
     font-size: 300%;
+}
+
+.nameOfCases {
+    text-align: right;
 }
 
 .progress-lg{
