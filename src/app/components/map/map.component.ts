@@ -11,6 +11,10 @@ export class MapComponent implements OnInit {
   constructor() { }
 
   @Input() casesByCountries: Country[];
+<<<<<<< HEAD
+=======
+  
+>>>>>>> master
 
   type="GeoChart";
   columnNames = [
