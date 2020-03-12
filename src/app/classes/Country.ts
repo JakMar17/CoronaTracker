@@ -13,4 +13,5 @@ export class Country {
     iso2Code: string;
     cLat: number;
     cLong: number;
+    population: number;
 }

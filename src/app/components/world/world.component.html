@@ -1,4 +1,4 @@
-<div *ngIf = "!spinner" class="col" style="height: 80%;">
+<div *ngIf = "!spinner" class="col">
     <div class="row" style="margin-bottom: 2%;">
     <div class = "col">
         <div class = "dropdown row-w-100 text-center" style="margin-left: 5%; margin-right: 5%;">
@@ -58,13 +58,79 @@
                     </div>
                 </div>
         </div>
-        <div class="col-md-12 col-lg-8 col-xl-8">
+        <div class="col-md-12 col-lg-8 col-xl-8 hidden-sm">
             <app-map [casesByCountries] = "casesByCountries" [casesByCountries] = "casesByCountries" ></app-map>
         </div>
     </div>
 
     <div *ngIf = "openChild">
         <app-country-modal [country] = "country" (closeValue) = "onModalClose($event)"></app-country-modal>
+    </div>
+
+    <hr>
+
+    <div class="row" style="text-align: center; margin-left: 5%; margin-right: 5%;">
+        <div class="col">
+            <h6 class="header">Mortality and recovery rates</h6>
+            <div class="row-w-100">
+                <app-pie-chart 
+                 [data] = "pieChartInProgress" 
+                 [columnNames] = "columnNamesPieChart"
+                 [options] = "optionPieChart">
+                </app-pie-chart>
+            </div>
+            <div class="row-w-100 table-responsive" style="margin-top: 5%;">
+                <table class="table" style="text-align: left;">
+                    <tbody>
+                        <tr>
+                            <td>
+                                Recovered
+                            </td>
+                            <td style="text-align: right;">
+                                {{worldLatest?.pOfRecovers | number:'1.0-2' :'sl-SL'}}%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Deaths
+                            </td>
+                            <td style="text-align: right;">
+                                {{worldLatest?.pOfDeaths | number:'1.0-2' :'sl-SL'}}%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                In progress
+                            </td>
+                            <td style="text-align: right;">
+                                {{worldLatest?.pActive | number:'1.0-2' :'sl-SL'}}%
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col">
+            <h6 class="header">Closed cases worldwide</h6>
+            <div class="row-w-100">
+                <app-pie-chart 
+                 [data] = "pieChartClosedCases" 
+                 [columnNames] = "columnNamesPieChart"
+                 [options] = "optionPieChart">
+                </app-pie-chart>
+            </div>
+            <div class="row-w-100" style="margin-top: 5%;">
+                <p>
+                    There is 1 in {{worldLatest?.population / worldLatest?.confirmed | number: '1.0-2' :'sl-SL'}} people diagnosed with COVID-19 virus.
+                </p>
+                <p>
+                    For every death due to COVID-19 virus there are {{worldLatest?.recovered / worldLatest?.deaths | number: '1.0-2' :'sl-SL' }} recovers.
+                </p>
+                <p>
+                    For every death due to COVID-19 virus there are {{worldLatest?.confirmed / worldLatest?.deaths | number: '1.0-2' :'sl-SL'}} diagnoses.
+                </p>
+            </div>
+        </div>
     </div>
 
 </div>

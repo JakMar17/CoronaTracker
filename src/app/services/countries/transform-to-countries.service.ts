@@ -30,6 +30,7 @@ export class TransformToCountriesService {
       switch(country.countryName) {
         case "Korea, South":
           country.countryName = "South Korea";
+          country.iso2Code = "KR";
           break;
       }
 
@@ -57,6 +58,19 @@ export class TransformToCountriesService {
 
 
     });
+  }
+
+  public setCountryPopulation(casesByCountry: Country[], data: any): void {
+    casesByCountry.forEach(element => {
+
+      data.forEach(element2 => {
+
+        if (element.iso2Code == element2.alpha2Code)
+          element.population = element2.population;
+
+      })
+
+    })
   }
 
   public calculatePercents(casesByCountry: Country[]): void {
