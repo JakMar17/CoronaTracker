@@ -16,17 +16,17 @@
             <ngb-tabset [destroyOnHide]="false">
                 <ngb-tab title="Confirmed">
                   <ng-template ngbTabContent>
-                    <app-confirmed [casesByCountry] = "casesByCountry"></app-confirmed>
+                    <app-confirmed [casesByCountry] = "casesByCountries" [world] = "world"></app-confirmed>
                   </ng-template>
                 </ngb-tab>
                 <ngb-tab title="Deaths">
                     <ng-template ngbTabContent>
-                      <app-deaths [casesByCountry] = "casesByCountry"></app-deaths>
+                      <app-deaths [casesByCountry] = "casesByCountries" [world] = "world"></app-deaths>
                     </ng-template>
                   </ngb-tab>
                   <ngb-tab title="Recovered">
                     <ng-template ngbTabContent>
-                      <app-recovered [casesByCountry] = "casesByCountry"></app-recovered>
+                      <app-recovered [casesByCountry] = "casesByCountries" [world] = "world"></app-recovered>
                     </ng-template>
                   </ngb-tab>
               </ngb-tabset>

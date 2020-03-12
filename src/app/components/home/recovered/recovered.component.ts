@@ -4,6 +4,7 @@ import { ApiKliciService } from '../../../services/APIklici/api-klici.service';
 import { TransformToCountriesService } from '../../../services/countries/transform-to-countries.service';
 import { Country } from '../../../classes/Country';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { World } from '../../../classes/World';
 
 @Component({
   selector: 'app-recovered',
@@ -13,6 +14,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class RecoveredComponent implements OnInit {
 
   @Input() casesByCountry: Country[] = [];
+  @Input() world: World;
 
   public openChild: boolean = false;
   public country: Country;

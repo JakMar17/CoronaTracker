@@ -56,14 +56,24 @@
               </div>
           </div>
 
-          <hr>
-
-          <div class="row-w-100">
-              <h4>Statistics</h4>
-              <p>
-                  Confirmed diagnoses per 100 000 people: <b>{{country?.sumOfConfirms / (country?.population / 100000) | number:'1.0-2' :'sl-SL' }}</b>
-              </p>
-          </div>
+          <div *ngIf = "country.population >= 0">
+              <hr>
+              <div class="row-w-100">
+                  <h4>Statistics</h4>
+                  <p>
+                      Confirmed diagnoses per 100 000 people: <b>{{country?.sumOfConfirms / (country?.population / 100000) | number:'1.0-2' :'sl-SL' }}</b>
+                    </p>
+                </div>
+                
+                <div class="row-w-100" style="height: 400px;">
+                    <app-chart
+                    [type] = "chartType"
+                    [data] = "dataForChart"
+                    [columnNames] = "columnNames"
+                    [options] = "options">
+                </app-chart>
+            </div>
+        </div>
 
           <div *ngIf = "country?.provinces.length > 1"
            class="row-w-100 table-responsive" style="margin-top: 5%; margin-bottom: 5%;">
@@ -113,7 +123,6 @@
       </div>
   </div>
   <div class="modal-footer">
-
   </div>
 </ng-template>
 

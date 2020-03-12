@@ -37,5 +37,5 @@
  </table>
 
 <div *ngIf = "openChild">
-    <app-country-modal [country] = "country" (closeValue) = "onModalClose($event)"></app-country-modal>
+    <app-country-modal [country] = "country" [world] = "world" (closeValue) = "onModalClose($event)"></app-country-modal>
 </div>

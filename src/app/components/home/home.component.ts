@@ -4,6 +4,8 @@ import { ApiKliciService } from '../../services/APIklici/api-klici.service';
 import { TransformToCountriesService } from '../../services/countries/transform-to-countries.service';
 import { Country } from '../../classes/Country';
 import { SortService } from '../../services/sort/sort.service';
+import { World } from '../../classes/World';
+import { WorldService } from '../../services/world/world.service';
 
 @Component({
   selector: 'app-home',
@@ -13,14 +15,15 @@ import { SortService } from '../../services/sort/sort.service';
 export class HomeComponent implements OnInit {
   
   private allCases: any;
-  public casesByCountry: Country[] = [];
+  public casesByCountries: Country[] = [];
+  public world: World = new World();
 
   public spinner: boolean = true;
 
   constructor(
     private apiCalls: ApiKliciService,
-    private transformToCountries: TransformToCountriesService,
-    private sort: SortService
+    private countryService: TransformToCountriesService,
+    private worldService: WorldService
   ) {
   }
 
@@ -28,12 +31,23 @@ export class HomeComponent implements OnInit {
     this.apiCalls.getAll().then(
       (data) => {
 
-        this.allCases = data;
-        this.transformToCountries.sortAll(this.allCases, this.casesByCountry);
-        
-        this.transformToCountries.calculatePercents(this.casesByCountry);
+        this.countryService.sortAll(data, this.casesByCountries);
+        this.countryService.calculatePercents(this.casesByCountries);
 
-        this.spinner = false;
+        this.apiCalls.getAllCountriesInfo().then(
+          (data) => {
+            this.countryService.setCountryPopulation(this.casesByCountries, data);
+            this.worldService.calculateWorldPopulation(data,this.world);
+
+            this.apiCalls.getWorldLatest().then(
+              (data) => {
+    
+                this.worldService.getWorldData(this.world, data);
+                
+                this.spinner = false;
+    
+              });
+          });
       }
     );
   }

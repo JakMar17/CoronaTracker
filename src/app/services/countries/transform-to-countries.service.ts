@@ -32,6 +32,12 @@ export class TransformToCountriesService {
           country.countryName = "South Korea";
           country.iso2Code = "KR";
           break;
+        case "China":
+          country.iso2Code = "CH";
+          break;
+        case "France":
+          country.iso2Code = "FR";
+          break;
       }
 
       country.sumOfConfirms += element.confirmed;
@@ -65,7 +71,7 @@ export class TransformToCountriesService {
 
       data.forEach(element2 => {
 
-        if (element.iso2Code == element2.alpha2Code)
+        if (element.iso2Code == element2.alpha2Code || element.countryName == element2.name)
           element.population = element2.population;
 
       })

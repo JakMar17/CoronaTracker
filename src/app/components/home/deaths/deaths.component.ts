@@ -4,6 +4,7 @@ import { ApiKliciService } from '../../../services/APIklici/api-klici.service';
 import { TransformToCountriesService } from '../../../services/countries/transform-to-countries.service';
 import { Country } from '../../../classes/Country';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { World } from '../../../classes/World';
 
 @Component({
   selector: 'app-deaths',
@@ -13,6 +14,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class DeathsComponent implements OnInit {
 
   @Input() casesByCountry: Country[] = [];
+  @Input() world: World;
 
   private nameSort: string = "DESC";
   private numberSort: string = "ASC";

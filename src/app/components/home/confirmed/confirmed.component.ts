@@ -5,6 +5,7 @@ import { TransformToCountriesService } from '../../../services/countries/transfo
 import { ApiKliciService } from '../../../services/APIklici/api-klici.service';
 import { SortService } from '../../../services/sort/sort.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { World } from '../../../classes/World';
 
 @Component({
   selector: 'app-confirmed',
@@ -14,6 +15,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class ConfirmedComponent implements OnInit {
   
   @Input() casesByCountry: Country[] = [];
+  @Input() world: World;
 
   private nameSort: string = "DESC";
   private numberSort: string = "ASC";
