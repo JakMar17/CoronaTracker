@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HomeComponent } from '../home.component';
-import { Tracker } from '../../../classes/Tracker';
 import { Country } from '../../../classes/Country';
 import { TransformToCountriesService } from '../../../services/countries/transform-to-countries.service';
 import { ApiKliciService } from '../../../services/APIklici/api-klici.service';
@@ -14,7 +13,6 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ConfirmedComponent implements OnInit {
   
-  private allCases: Tracker;
   @Input() casesByCountry: Country[] = [];
 
   private nameSort: string = "DESC";

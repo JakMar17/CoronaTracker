@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { SortService } from '../../../services/sort/sort.service';
 import { ApiKliciService } from '../../../services/APIklici/api-klici.service';
 import { TransformToCountriesService } from '../../../services/countries/transform-to-countries.service';
-import { Tracker } from '../../../classes/Tracker';
 import { Country } from '../../../classes/Country';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -13,7 +12,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class DeathsComponent implements OnInit {
 
-  private allCases: Tracker;
   @Input() casesByCountry: Country[] = [];
 
   private nameSort: string = "DESC";

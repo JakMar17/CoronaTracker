@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ApiKliciService } from '../../services/APIklici/api-klici.service';
-import { Tracker } from '../../classes/Tracker';
-import { Confirmed } from '../../classes/Confirmed';
 import { TransformToCountriesService } from '../../services/countries/transform-to-countries.service';
 import { Country } from '../../classes/Country';
 import { SortService } from '../../services/sort/sort.service';

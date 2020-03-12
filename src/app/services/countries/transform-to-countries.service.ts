@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiKliciService } from '../APIklici/api-klici.service';
-import { Tracker } from '../../classes/Tracker';
 import { Country } from '../../classes/Country';
-import { Location } from '../../classes/Location';
 import { Province } from '../../classes/Province';
 
 @Injectable({
@@ -13,7 +11,7 @@ export class TransformToCountriesService {
   constructor(
   ) { }
 
-  public sortAll (allCases: any, casesByCountry: Country[]): void {
+  public sortAll (allCases: any[], casesByCountry: Country[]): void {
     allCases.forEach(element => {
       let country: Country;
       

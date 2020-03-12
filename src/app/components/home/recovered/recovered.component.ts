@@ -3,7 +3,6 @@ import { SortService } from '../../../services/sort/sort.service';
 import { ApiKliciService } from '../../../services/APIklici/api-klici.service';
 import { TransformToCountriesService } from '../../../services/countries/transform-to-countries.service';
 import { Country } from '../../../classes/Country';
-import { Tracker } from '../../../classes/Tracker';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -13,7 +12,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class RecoveredComponent implements OnInit {
 
-  private allCases: Tracker;
   @Input() casesByCountry: Country[] = [];
 
   public openChild: boolean = false;

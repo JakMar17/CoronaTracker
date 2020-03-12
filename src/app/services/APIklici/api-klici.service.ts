@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Tracker } from '../../classes/Tracker';
-import { Confirmed } from '../../classes/Confirmed';
 
 @Injectable({
   providedIn: 'root'
