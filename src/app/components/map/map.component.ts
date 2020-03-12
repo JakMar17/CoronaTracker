@@ -69,7 +69,6 @@ export class MapComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log("Ok");
     this.dataToChart();
   }
 }

@@ -27,7 +27,6 @@ export class CountryModalComponent implements OnInit {
   public closeModal(): void {
     this.closeValue.emit(false);
     this.modalService.dismissAll();
-    console.log(this.closeValue)
   }
 
   public pOfRecovers(country: Country): string {
@@ -46,7 +45,6 @@ export class CountryModalComponent implements OnInit {
   }
   
   ngAfterViewInit(){
-    console.log(this.content);
     this.open(this.content);
   }
 

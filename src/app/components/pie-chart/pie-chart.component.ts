@@ -16,7 +16,6 @@ export class PieChartComponent implements OnInit {
   type = "PieChart"
 
   ngOnInit(): void {
-    console.log(this.title)
   }
 
 }
