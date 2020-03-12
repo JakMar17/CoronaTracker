@@ -58,7 +58,7 @@ export class MapComponent implements OnInit {
           temp.push(element.countryName);
       }
     
-      let v: number = Math.log(element.sumOfConfirms) / 5;
+      let v: number = 1024 * Math.log(element.sumOfConfirms) / 5;
 
       let tempNumber = {f: element.sumOfConfirms, v: v};
 

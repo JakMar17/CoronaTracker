@@ -4,6 +4,7 @@ import { Tracker } from '../../classes/Tracker';
 import { Country } from '../../classes/Country';
 import { TransformToCountriesService } from '../../services/countries/transform-to-countries.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { World } from '../../classes/World';
 
 @Component({
   selector: 'app-world',
@@ -12,7 +13,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class WorldComponent implements OnInit {
 
-  public tracker: Tracker
+  public tracker: any;
+  public worldLatest: World = new World();
   public casesByCountries: Country[] = [];
 
   public openChild: boolean = false;
@@ -21,7 +23,6 @@ export class WorldComponent implements OnInit {
 
   public spinner: boolean = true;
 
-  @ViewChild("searchBox") xxx: ElementRef;
 
   constructor(
     private apiCalls: ApiKliciService,
@@ -33,12 +34,24 @@ export class WorldComponent implements OnInit {
     this.apiCalls.getAll().then(
       (data) => {
         this.tracker = data;
-        this.countryService.sortConfirmed(this.tracker, this.casesByCountries);
-        this.countryService.sortDeaths(this.tracker, this.casesByCountries);
-        this.countryService.sortRecovered(this.tracker, this.casesByCountries);
-
+        this.countryService.sortAll(this.tracker, this.casesByCountries);
         this.countryService.calculatePercents(this.casesByCountries);
-        this.spinner = false;
+
+        this.apiCalls.getWorldLatest().then(
+          (data) => {
+
+            console.log(data.confirmed.value);
+
+            this.worldLatest.confirmed = data.confirmed.value;
+            this.worldLatest.deaths = data.deaths.value;
+            this.worldLatest.recovered = data.recovered.value;
+
+            console.log(this.worldLatest);
+            
+            this.spinner = false;
+          }
+        );
+
       }
     );
   }
@@ -52,11 +65,6 @@ export class WorldComponent implements OnInit {
     this.openChild = x;
   }
 
-  public setFocus(): void {
-
-    console.log("ok");
-    this.xxx.nativeElement.focus();
-  }
 
   ngOnInit(): void {
     this.sortByCountries();

@@ -14,7 +14,7 @@ import { SortService } from '../../services/sort/sort.service';
 })
 export class HomeComponent implements OnInit {
   
-  private allCases: Tracker;
+  private allCases: any;
   public casesByCountry: Country[] = [];
 
   public spinner: boolean = true;
@@ -29,14 +29,11 @@ export class HomeComponent implements OnInit {
   public sortByCountries(): void {
     this.apiCalls.getAll().then(
       (data) => {
+
         this.allCases = data;
+        this.transformToCountries.sortAll(this.allCases, this.casesByCountry);
         
-        this.transformToCountries.sortConfirmed(this.allCases, this.casesByCountry)
-        this.transformToCountries.sortDeaths(this.allCases, this.casesByCountry);
-        this.transformToCountries.sortRecovered(this.allCases, this.casesByCountry);
         this.transformToCountries.calculatePercents(this.casesByCountry);
-        
-        this.casesByCountry = this.sort.sortBySumOfConfirmedDESC(this.casesByCountry);
 
         this.spinner = false;
       }

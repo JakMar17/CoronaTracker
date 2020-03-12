@@ -1,8 +1,7 @@
-import { Coordinates } from "./Coordinates"
-
 export class Province {
     provinceName: string;
-    coordinates: Coordinates;
+    cLat: number;
+    cLong: number;
     confirmed: number;
     deaths: number;
     recovered: number;

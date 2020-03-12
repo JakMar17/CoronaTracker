@@ -10,41 +10,28 @@ export class ApiKliciService {
 
   constructor(private http: HttpClient) { }
 
-  private baseURL:string = "https://coronavirus-tracker-api.herokuapp.com/";
+  private baseURL: string = "https://covid19.mathdro.id/api";
 
-  /*public getMoneyExchangeRates(): Promise<ExchangeRate> {
-    let url: string = this.baseURL + "rates/money";
-
+  public getAll(): Promise<any[]> {
+    let url: string = this.baseURL + "/confirmed";
+    
     return this.http
       .get(url)
       .toPromise()
       .then(
-        data => data as ExchangeRate)
-      .catch(this.obdelajNapako);
-  }*/
-
-  public getAll(): Promise<Tracker> {
-    let url: string = this.baseURL + "all";
-
-    return this.http
-      .get(url)
-      .toPromise()
-      .then(
-        data => data as Tracker
+        data => data as any[]
       )
-      .catch(this.obdelajNapako)
+      .catch(this.obdelajNapako);
   }
 
-  public getConfirmed(): Promise<Confirmed> {
-    let url: string = this.baseURL + "confirmed";
-
+  public getWorldLatest(): Promise<any> {
     return this.http
-      .get(url)
+      .get(this.baseURL)
       .toPromise()
       .then(
-        data => data as Confirmed[]
+        data => data as any
       )
-      .catch(this.obdelajNapako)
+      .catch(this.obdelajNapako);
   }
 
   private obdelajNapako(napaka: any): Promise<any> {

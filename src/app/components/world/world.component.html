@@ -3,7 +3,7 @@
     <div class = "col">
         <div class = "dropdown row-w-100 text-center" style="margin-left: 5%; margin-right: 5%;">
             <button type="button" class="btn btn-light text-left" style="width: 100% !important; border-radius: 24px; padding-left: 3%;" 
-             (click) = "setFocus()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search" style="padding-right: 2%;"></i>
                 Search
             </button>
@@ -26,11 +26,11 @@
     </div>
 
     <div class="row h-100" style="margin-left: 5%; margin-right: 5%;">
-        <div class="col-md-6 col-lg-2 col-xl-2">
+        <div class="col-md-6 col-lg-4 col-xl-3">
                 <div class="row-w-100">
                     <div class="alert alert-secondary" [routerLink] = "['/countries']">
                         <div class="row-w-100 noOfCases">
-                            {{tracker?.confirmed.latest}}
+                            {{worldLatest?.confirmed}}
                         </div>
                         <div class="row-w-100 nameOfCases">
                             Confirmed cases worldwide
@@ -40,7 +40,7 @@
                 <div class="row-w-100">
                     <div class="alert alert-danger" [routerLink] = "['/countries']">
                         <div class="row-w-100 noOfCases">
-                            {{tracker?.deaths.latest}}
+                            {{worldLatest?.deaths}}
                         </div>
                         <div class="row-w-100 nameOfCases">
                             Number of deaths worldwide
@@ -50,7 +50,7 @@
                 <div class="row-w-100">
                     <div class="alert alert-success" [routerLink] = "['/countries']">
                         <div class="row-w-100 noOfCases">
-                            {{tracker?.recovered.latest}}
+                            {{worldLatest?.recovered}}
                         </div>
                         <div class="row-w-100 nameOfCases">
                             Number of recovers worldwide
@@ -58,7 +58,7 @@
                     </div>
                 </div>
         </div>
-        <div class="col-md-12 col-lg-10 col-xl-10">
+        <div class="col-md-12 col-lg-8 col-xl-9">
             <app-map [casesByCountries] = "casesByCountries" [casesByCountries] = "casesByCountries" ></app-map>
         </div>
     </div>

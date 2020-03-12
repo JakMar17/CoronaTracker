@@ -9,4 +9,8 @@ export class Country {
     pOfRecovers: any;
     sumOfDeaths: number = 0;
     pOfDeaths: any;
+
+    iso2Code: string;
+    cLat: number;
+    cLong: number;
 }

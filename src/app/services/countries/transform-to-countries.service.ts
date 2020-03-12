@@ -11,103 +11,53 @@ import { Province } from '../../classes/Province';
 export class TransformToCountriesService {
 
   constructor(
-    private apiCalls: ApiKliciService
   ) { }
 
-  public sortConfirmed(allCases: Tracker, casesByCountry: Country[]): void {
-    allCases.confirmed.locations.forEach(element => {
-          
+  public sortAll (allCases: any, casesByCountry: Country[]): void {
+    allCases.forEach(element => {
       let country: Country;
-    
-      casesByCountry.forEach(e => {
-        if(e.countryName == element.country)
-          country = e;
-      });
-
-      if (country == null) {
-        country = new Country();
-        country.countryName = element.country;
-        casesByCountry.push(country);
-      }
-
-      country.sumOfConfirms += element.latest;
       
-      let province: Province = new Province();
-      province.confirmed = element.latest;
-      province.coordinates = element.coordinates;
-      province.provinceName = element.province;
-
-      country.provinces.push(province);
-    });
-  }
-
-  public sortDeaths(allCases: Tracker, casesByCountry: Country[]): void {
-    allCases.deaths.locations.forEach(element => {
-
-      let country: Country;
       casesByCountry.forEach(e => {
-        if (e.countryName == element.country)
+        if(e.countryName == element.countryRegion) {
           country = e;
+        }
       });
 
-      if (country == null) {
+      if(country == null) {
         country = new Country();
-        country.countryName = element.country;
+        country.countryName = element.countryRegion;
         casesByCountry.push(country);
       }
 
-      country.sumOfDeaths += element.latest;
+      switch(country.countryName) {
+        case "Korea, South":
+          country.countryName = "South Korea";
+          break;
+      }
 
-      let province: Province;
-      country.provinces.forEach(e => {
-        if (e.provinceName == element.province)
-          province = e;
-      });
+      country.sumOfConfirms += element.confirmed;
+      country.sumOfDeaths += element.deaths;
+      country.sumOfRecovers += element.recovered;
 
-      if (province == null) {
-        province = new Province();
-        province.provinceName = element.province;
-        province.coordinates = element.coordinates;
+      if (element.provinceState != null) {
+        let province: Province = new Province();
+        province.provinceName = element.provinceState;
+        province.cLat = element.lat;
+        province.cLong = element.long;
+
+        province.confirmed = element.confirmed;
+        province.deaths = element.deaths;
+        province.recovered = element.recovered;
+
         country.provinces.push(province);
+      } else {
+        country.cLat = element.lat;
+        country.cLong = element.long;
+
+        country.iso2Code = element.iso2;
       }
 
-      province.deaths = element.latest;
-      
-    });
-  }
 
-  public sortRecovered(allCases: Tracker, casesByCountry: Country[]): void {
-    allCases.recovered.locations.forEach(element => {
-
-      let country: Country;
-      casesByCountry.forEach(e => {
-        if (e.countryName == element.country)
-          country = e;
-      });
-
-      if (country == null) {
-        country = new Country();
-        country.countryName = element.country;
-        casesByCountry.push(country);
-      }
-
-      country.sumOfRecovers += element.latest;
-
-      let province: Province;
-      country.provinces.forEach(e => {
-        if (e.provinceName == element.province)
-          province = e;
-      });
-
-      if (province == null) {
-        province = new Province();
-        province.provinceName = element.province;
-        province.coordinates = element.coordinates;
-        country.provinces.push(province);
-      }
-
-      province.recovered = element.latest;
-      
     });
   }
 
