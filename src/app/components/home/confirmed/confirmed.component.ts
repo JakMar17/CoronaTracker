@@ -21,6 +21,8 @@ export class ConfirmedComponent implements OnInit {
   public openChild: boolean = false;
   public country: Country;
 
+  public serachText: string = "";
+
   constructor(
     private transformToCountries: TransformToCountriesService,
     private apiCalls: ApiKliciService,

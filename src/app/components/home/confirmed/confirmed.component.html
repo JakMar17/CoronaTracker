@@ -1,4 +1,8 @@
 
+<div class="input-group">
+    <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search" autofocus id = "searchBox" #searchBox>
+</div>
+
 <table class = "table">
     <!-- <div class="col">
         {{confirmed?.latest}}
@@ -14,7 +18,7 @@
         </tr>
     </tbody>
     <tbody>
-        <tr *ngFor = "let country of casesByCountry" (click) = "clickAndOpen(country)">
+        <tr *ngFor = "let country of casesByCountry | searchPipe: searchText;" (click) = "clickAndOpen(country)">
             <td>
                 <div class="row">
                     <div class = "col">
