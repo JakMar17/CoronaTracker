@@ -3,8 +3,8 @@ import { ApiKliciService } from '../../services/APIklici/api-klici.service';
 import { Country } from '../../classes/Country';
 import { TransformToCountriesService } from '../../services/countries/transform-to-countries.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { World } from '../../classes/World';
 import { WorldService } from '../../services/world/world.service';
+import { World } from '../../classes/World';
 
 @Component({
   selector: 'app-world',
