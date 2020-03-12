@@ -19,7 +19,7 @@ export class DeathsComponent implements OnInit {
 
   public openChild: boolean = false;
   public country: Country;
-  public serachText: string = "";
+  public searchText: string = "";
 
   public spinner: boolean = true;
 

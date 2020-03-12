@@ -16,7 +16,7 @@ export class RecoveredComponent implements OnInit {
 
   public openChild: boolean = false;
   public country: Country;
-  public serachText: string = "";
+  public searchText: string = "";
 
   private nameSort: string = "DESC";
   private numberSort: string = "ASC";
