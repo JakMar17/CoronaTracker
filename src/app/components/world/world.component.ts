@@ -5,6 +5,7 @@ import { TransformToCountriesService } from '../../services/countries/transform-
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { WorldService } from '../../services/world/world.service';
 import { World } from '../../classes/World';
+import { DailyReports } from '../../classes/DailyReport';
 
 @Component({
   selector: 'app-world',
@@ -16,6 +17,7 @@ export class WorldComponent implements OnInit {
   public tracker: any[] = [];
   public worldLatest: World = new World();
   public casesByCountries: Country[] = [];
+  public dailyReports: DailyReports[];
 
   public openChild: boolean = false;
   public country: Country;
@@ -63,6 +65,15 @@ export class WorldComponent implements OnInit {
     );
   }
 
+  public getDailyReports(): void {
+    this.apiCalls.getDailyData().then(
+      (data) => {
+        this.dailyReports = data;
+        this.setLineChartData();
+      }
+    )
+  }
+
   public clickAndOpen(country: Country): void {
     this.country = country;
     this.openChild = true;
@@ -74,6 +85,7 @@ export class WorldComponent implements OnInit {
 
   ngOnInit(): void {
     this.sortByCountries();
+    this.getDailyReports();
   }
 
 
@@ -84,6 +96,25 @@ export class WorldComponent implements OnInit {
     pieSliceText: "label",
     colors: ["#680114", "#86DB41", "#ECA72C"],
     chartArea: {'width': '100%', 'height': '100%'},
+  }
+
+  //line chart data
+  public lineChartColumnNames: string[] = ["Date", "Total confirmed", "Total recovered"];
+  public lineChartType: string = "ComboChart";
+  public lineChartData: any[] = [];
+  public lineChartOptions = {
+    seriesType: 'line',
+    legend: 'bottom',
+    colors: ["#680114", "#86DB41"],
+  }
+
+  private setLineChartData(): void {
+    this.dailyReports.forEach(element => {
+      let date = new Date(Date.parse(element.reportDateString));
+      let day = date.getDate();
+      let month = date.getMonth() + 1;
+      this.lineChartData.push([ (day + "." + month), element.totalConfirmed, element.totalRecovered]);
+    });
   }
   
   // % of in progress cases

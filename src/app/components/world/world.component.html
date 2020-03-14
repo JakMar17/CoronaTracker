@@ -69,6 +69,19 @@
 
     <hr>
 
+    <div class="row" style="text-align: center; margin-left: 5%; margin-right: 5%; margin-bottom: 5%;">
+        <div class="col">
+            <!-- <h6 class="header">Mortality and recovery rates</h6> -->
+            <app-chart
+                    [type] = "lineChartType"
+                    [data] = "lineChartData"
+                    [columnNames] = "lineChartColumnNames"
+                    [options] = "lineChartOptions">
+            </app-chart>
+        </div>
+    </div>
+
+
     <div class="row" style="text-align: center; margin-left: 5%; margin-right: 5%;">
         <div class="col">
             <h6 class="header">Mortality and recovery rates</h6>

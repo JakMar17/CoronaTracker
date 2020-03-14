@@ -8,11 +8,11 @@ export class ApiKliciService {
 
   constructor(private http: HttpClient) { }
 
-  private baseURL: string = "https://covid19.mathdro.id/api";
+  private baseURL: string = "https://covid19.mathdro.id/api/";
   private baseURLCountries = "https://restcountries.eu/rest/v2/";
 
   public getAll(): Promise<any[]> {
-    let url: string = this.baseURL + "/confirmed";
+    let url: string = this.baseURL + "confirmed";
     
     return this.http
       .get(url)
@@ -43,6 +43,18 @@ export class ApiKliciService {
         data => data as any
       )
       .catch(this.obdelajNapako);
+  }
+
+  public getDailyData(): Promise<any> {
+    let url: string = this.baseURL + "daily";
+
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(
+        data => data as any
+      )
+      .catch(this.obdelajNapako)
   }
 
   private obdelajNapako(napaka: any): Promise<any> {
