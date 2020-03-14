@@ -1,6 +1,19 @@
 
-<div class="input-group">
-    <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search" id = "searchBox" #searchBox>
+<!-- <div class="input-group">
+    <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search" id = "searchBox">
+</div> -->
+
+<div class = "dropdown row-w-100 dropright" style="margin-top: 2%; margin-bottom: 2%;">
+    <button type="button" class="btn btn-light text-left dropright" style="border-radius: 24px; padding-left: 2%; padding-right: 2%;" 
+     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-search" style="padding-right: 2%;"></i>
+        Search
+    </button>
+    <div class="dropdown-menu dropright" aria-labelledby="dropdownMenuButton">
+        <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search" autofocus id = "searchBox" #searchBox>
+        </div>
+    </div>
 </div>
 
 <table class = "table">
