@@ -91,12 +91,12 @@ export class WorldComponent implements OnInit {
 
   // chart graph data
   public columnNamesPieChart: any[] = ['Type', 'Number', { role: 'style' }];
-  public pieChartType = "ColumnChart";
+  public pieChartType = "PieChart";
   public optionPieChart = {
     legend: "none",
     pieSliceText: "label",
     colors: ["#680114", "#86DB41", "#ECA72C"],
-    chartArea: {'width': '100%', 'height': '100%'},
+    chartArea: {'width': '100%', 'height': '90%'},
   }
 
   //line chart data
