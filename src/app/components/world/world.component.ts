@@ -90,7 +90,8 @@ export class WorldComponent implements OnInit {
 
 
   // chart graph data
-  public columnNamesPieChart: string[] = ['Type', 'Number'];
+  public columnNamesPieChart: any[] = ['Type', 'Number', { role: 'style' }];
+  public pieChartType = "ColumnChart";
   public optionPieChart = {
     legend: "none",
     pieSliceText: "label",
@@ -120,17 +121,17 @@ export class WorldComponent implements OnInit {
   // % of in progress cases
   public pieChartInProgress: any[] = [];
   private setPieChartTypes(): void {
-    this.pieChartInProgress.push(['Deaths', this.worldLatest.deaths]);
-    this.pieChartInProgress.push(['Recovered', this.worldLatest.recovered]);
+    this.pieChartInProgress.push(['Deaths', this.worldLatest.deaths, "#680114"]);
+    this.pieChartInProgress.push(['Recovered', this.worldLatest.recovered, "#86DB41"]);
     let x = this.worldLatest.confirmed - this.worldLatest.deaths - this.worldLatest.recovered;
-    this.pieChartInProgress.push(['Active', x]);
+    this.pieChartInProgress.push(['Active', x, "#ECA72C"]);
   }
 
   // % of sick people
   public pieChartClosedCases: any[] = [];
   private setChartClosedCases(): void {
-    this.pieChartClosedCases.push(['Deaths', this.worldLatest.deaths]);
-    this.pieChartClosedCases.push(['Recovered', this.worldLatest.recovered]);
+    this.pieChartClosedCases.push(['Deaths', this.worldLatest.deaths, "#680114"]);
+    this.pieChartClosedCases.push(['Recovered', this.worldLatest.recovered, "#86DB41"]);
   }
 
 }

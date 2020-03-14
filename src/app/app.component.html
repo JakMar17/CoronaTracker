@@ -31,17 +31,25 @@ $('#sidebarCollapse').on('click', function () {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click) = "closeNav()">&times;</a>
+    <a [routerLink] = "['/countries']" (click) = "closeNav()">Data by country</a>
+    <hr>
+    <a href="https://github.com/JakMar17/CoronaTracker">Source code</a>
+    <a href="mailto:jakob.marusic17@gmail.com">Contact</a>
+</div>
 
+<div class="main">
     <div class="container-fluid">
         <div class="row" style="background-color: var(--primary);">
             <div class="col odmik vertical-align" style="margin-left: 2%;">
-                <!-- <div class="hamburger-menu">
-                    <i class="fas fa-bars" [routerLink]="['/converter']"></i>
-                </div> -->
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars" (click) = "openNav()"></i>
+                </div>
             </div>
             <div class="col odmik">
                 <div style = "text-align: center;">
-                    <div class = "navbar-brand" style="color: aliceblue;" [routerLink]="['/']">
+                    <div class = "navbar-brand" style="color: aliceblue;" [routerLink]="['/']" (click) = "closeNav()">
                         <i class="fas fa-procedures" style="height: 1.8em;"> </i>
                         CoronaTracker
                     </div>
@@ -55,6 +63,7 @@ $('#sidebarCollapse').on('click', function () {
     <div class="row" style="height: 5ex;"></div>
 
     <router-outlet></router-outlet>
+</div>
 
 <footer class="page-footer font-small dark">
     <hr>

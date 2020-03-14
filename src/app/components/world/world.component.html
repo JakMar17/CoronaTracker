@@ -86,11 +86,13 @@
         <div class="col">
             <h6 class="header">Mortality and recovery rates</h6>
             <div class="row-w-100">
-                <app-pie-chart 
-                 [data] = "pieChartInProgress" 
-                 [columnNames] = "columnNamesPieChart"
-                 [options] = "optionPieChart">
-                </app-pie-chart>
+                <app-chart
+                    [type] = "pieChartType"
+                    [data] = "pieChartInProgress" 
+                    [columnNames] = "columnNamesPieChart"
+                    [options] = "optionPieChart"
+                >
+                </app-chart>
             </div>
             <div class="row-w-100 table-responsive" style="margin-top: 5%;">
                 <table class="table" style="text-align: left;">
@@ -126,11 +128,13 @@
         <div class="col">
             <h6 class="header">Closed cases worldwide</h6>
             <div class="row-w-100">
-                <app-pie-chart 
-                 [data] = "pieChartClosedCases" 
-                 [columnNames] = "columnNamesPieChart"
-                 [options] = "optionPieChart">
-                </app-pie-chart>
+                <app-chart
+                    [type] = "pieChartType"
+                    [data] = "pieChartClosedCases" 
+                    [columnNames] = "columnNamesPieChart"
+                    [options] = "optionPieChart"
+                >
+                </app-chart>
             </div>
             <div class="row-w-100" style="margin-top: 5%;">
                 <p>
