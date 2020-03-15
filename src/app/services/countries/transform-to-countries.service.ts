@@ -38,6 +38,10 @@ export class TransformToCountriesService {
         case "France":
           country.iso2Code = "FR";
           break;
+        case "Czechia":
+          country.countryName = "Czech Republic";
+          country.iso2Code = "CZ";
+          break;
       }
 
       country.sumOfConfirms += element.confirmed;

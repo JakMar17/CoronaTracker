@@ -96,7 +96,7 @@ export class WorldComponent implements OnInit {
     legend: "none",
     pieSliceText: "label",
     colors: ["#680114", "#86DB41", "#ECA72C"],
-    chartArea: {'width': '100%', 'height': '90%'},
+    chartArea: {'width': '90%', 'height': '90%'},
   }
 
   //line chart data
@@ -107,6 +107,7 @@ export class WorldComponent implements OnInit {
     seriesType: 'line',
     legend: 'bottom',
     colors: ["#680114", "#86DB41"],
+    chartArea: {'width': '70%', 'height': '85%'},
   }
 
   private setLineChartData(): void {
@@ -152,7 +153,8 @@ export class WorldComponent implements OnInit {
       '#CA0707',
       '#A90505'
     ]},
-    legend: "none"
+    legend: "none",
+    chartArea: {'width': '100%', 'height': '100%'},
   };
 
   private mapChartSetData(): void {
