@@ -177,6 +177,9 @@ export class WorldComponent implements OnInit {
         case "Iran (Islamic Republic of)":
           temp.push("Iran");
           break;
+        case "United States of America":
+          temp.push("US");
+          break;
         default:
           temp.push(element.countryName);
       }
