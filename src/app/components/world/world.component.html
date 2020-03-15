@@ -59,7 +59,14 @@
                 </div>
         </div>
         <div class="col-md-12 col-lg-8 col-xl-8 hidden-sm">
-            <app-map [casesByCountries] = "casesByCountries" [casesByCountries] = "casesByCountries" ></app-map>
+            <!-- <app-map [casesByCountries] = "casesByCountries" [casesByCountries] = "casesByCountries" ></app-map> -->
+            <app-chart
+                    [type] = "mapChartType"
+                    [data] = "mapChartData" 
+                    [columnNames] = "mapChartColumnNames"
+                    [options] = "mapChartOptions"
+                >
+                </app-chart>
         </div>
     </div>
 
