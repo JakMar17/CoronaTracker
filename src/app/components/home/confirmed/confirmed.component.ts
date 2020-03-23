@@ -65,6 +65,7 @@ export class ConfirmedComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sortByNumber();
   }
 
 }

@@ -1,8 +1,10 @@
+import { Confirmed } from './Confirmed';
+import { Deaths } from './Deaths';
+import { Recovered } from './Recovered';
+
 export class DailyReports {
     reportDate: string;
-    totalConfirmed: number = 0;
-    totalRecovered: number = 0;
-    deltaConfirmed: number = 0;
-    deltaRecovered: number = 0;
-    reportDateString: string;
+    confirmed: Confirmed;
+    deaths: Deaths;
+    recovered: Recovered;
 }
