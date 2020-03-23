@@ -100,22 +100,22 @@ export class WorldComponent implements OnInit {
   }
 
   //line chart data
-  public lineChartColumnNames: string[] = ["Date", "Total confirmed", "Total recovered"];
+  public lineChartColumnNames: string[] = ["Date", "Total confirmed", "Total recovered", "Total deaths"];
   public lineChartType: string = "ComboChart";
   public lineChartData: any[] = [];
   public lineChartOptions = {
     seriesType: 'line',
     legend: 'bottom',
-    colors: ["#680114", "#86DB41"],
+    colors: ["#ECA72C", "#86DB41", "#680114"],
     chartArea: {'width': '70%', 'height': '85%'},
   }
 
   private setLineChartData(): void {
     this.dailyReports.forEach(element => {
-      let date = new Date(Date.parse(element.reportDateString));
+      let date = new Date(Date.parse(element.reportDate));
       let day = date.getDate();
       let month = date.getMonth() + 1;
-      this.lineChartData.push([ (day + "." + month), element.totalConfirmed, element.totalRecovered]);
+      this.lineChartData.push([ (day + "." + month), element.confirmed.total, element.recovered.total, element.deaths.total]);
     });
   }
   
@@ -184,7 +184,8 @@ export class WorldComponent implements OnInit {
           temp.push(element.countryName);
       }
     
-      let v: number = 1024 * Math.log(element.sumOfConfirms) / 5;
+      let v: number = 4096 * Math.log(element.sumOfConfirms);
+      //let v: number = element.sumOfConfirms;
 
       let tempNumber = {f: element.sumOfConfirms, v: v};
 

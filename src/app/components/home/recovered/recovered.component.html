@@ -11,40 +11,40 @@
     </div>
 </div>
 
-<table class = "table">
-    <!-- <div class="col">
-        {{confirmed?.latest}}
-    </div> -->
-    <tbody>
-        <tr>
-            <th scope="col" (click) = "sortByName()">
-                Location
-            </th>
-            <th scope="col" style="text-align: right;" (click) = "sortByNumber()">
-                No. of recovers
-            </th>
-        </tr>
-    </tbody>
-    <tbody>
-        <tr *ngFor = "let country of casesByCountry | searchPipe: searchText;" (click) = "clickAndOpen(country)">
-            <td>
-                <div class="row">
-                    <div class = "col">
-                        {{country?.countryName}}
+    <table class = "table">
+        <!-- <div class="col">
+            {{confirmed?.latest}}
+        </div> -->
+        <tbody>
+            <tr>
+                <th scope="col" (click) = "sortByName()">
+                    Location
+                </th>
+                <th scope="col" style="text-align: right;" (click) = "sortByNumber()">
+                    No. of recovers
+                </th>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr *ngFor = "let country of casesByCountry | searchPipe: searchText;" (click) = "clickAndOpen(country)">
+                <td>
+                    <div class="row">
+                        <div class = "col">
+                            {{country?.countryName}}
+                        </div>
                     </div>
-                </div>
-            </td>
-            <td>
-                <div class="row-w-100">
-                    <div class="col" style="text-align: right;">
-                        {{country?.sumOfRecovers}}
+                </td>
+                <td>
+                    <div class="row-w-100">
+                        <div class="col" style="text-align: right;">
+                            {{country?.sumOfRecovers}}
+                        </div>
                     </div>
-                </div>
-            </td>
+                </td>
 
-        </tr>
-    </tbody>
-</table>
+            </tr>
+        </tbody>
+    </table>
 
 <div *ngIf = "openChild">
     <app-country-modal [country] = "country" [world] = "world" (closeValue) = "onModalClose($event)"></app-country-modal>
