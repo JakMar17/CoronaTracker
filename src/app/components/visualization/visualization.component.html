@@ -1,0 +1,54 @@
+<div *ngIf = "spinner">
+    <app-spinner></app-spinner>
+  </div>
+  
+  <div *ngIf = "!spinner">
+    <div clas = "container-fluid">
+      <div class="row">
+          <div class="col-md-2 col-lg-2 col-xl-2">
+          </div>
+          
+          <div class="col-md-8 col-lg-8 col-xl-8">
+
+            <h4>
+              Top 10 countries (confirmed cases in 100 000)
+            </h4>
+            <div class="row-w-100">
+              <app-chart
+                [type] = "columnChart"
+                [data] = "confirmDataChart"
+                [columnNames] = "confirmColumnNamesChart"
+                [options] = "columnChartOptions">
+              </app-chart>
+            </div>
+
+            <h4>
+              Top 10 countries (recover cases in 100 000)
+            </h4>
+            <div class="row-w-100">
+              <app-chart
+                [type] = "columnChart"
+                [data] = "recoveredDataChart"
+                [columnNames] = "recoveredColumnNames"
+                [options] = "columnChartOptions">
+              </app-chart>
+            </div>
+
+            <h4>
+              Top 10 countries (deaths in 100 000)
+            </h4>
+            <div class="row-w-100">
+              <app-chart
+                [type] = "columnChart"
+                [data] = "deathsDataChart"
+                [columnNames] = "deathsColumnNames"
+                [options] = "columnChartOptions">
+              </app-chart>
+            </div>
+          </div>
+  
+          <div class="col-md-2 col-lg-2 col-xl-2">
+          </div>
+      </div>
+    </div>
+  </div>

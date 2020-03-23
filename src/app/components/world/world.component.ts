@@ -56,6 +56,8 @@ export class WorldComponent implements OnInit {
                 this.setPieChartTypes();
                 this.setChartClosedCases();
                 this.mapChartSetData();
+
+                console.log(this.casesByCountries);
               });
 
           });

@@ -33,7 +33,7 @@ export class TransformToCountriesService {
           country.iso2Code = "KR";
           break;
         case "China":
-          country.iso2Code = "CH";
+          country.iso2Code = "CN";
           break;
         case "France":
           country.iso2Code = "FR";

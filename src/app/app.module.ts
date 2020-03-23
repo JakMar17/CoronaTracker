@@ -25,6 +25,7 @@ import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { MapComponent } from './components/map/map.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { AboutComponent } from './components/about/about.component';
+import { VisualizationComponent } from './components/visualization/visualization.component';
 
 // the second parameter 'fr-FR' is optional
 registerLocaleData(localeSl, 'sl-SL');
@@ -43,7 +44,8 @@ registerLocaleData(localeSl, 'sl-SL');
     PieChartComponent,
     MapComponent,
     ChartComponent,
-    AboutComponent
+    AboutComponent,
+    VisualizationComponent
   ],
   imports: [
     BrowserModule,
