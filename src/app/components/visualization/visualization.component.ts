@@ -21,6 +21,7 @@ export class VisualizationComponent implements OnInit {
   public spinner: boolean = false;
   public tracker: any[];
   public casesByCountries: Country[] = [];
+  private per100000: Country[];
 
   private getCasesByCountry(): void {
     this.apiCalls.getAll().then(
@@ -49,6 +50,26 @@ export class VisualizationComponent implements OnInit {
     this.getCasesByCountry();
   }
 
+  private calculatePer100000(): void {
+    this.per100000 = [];
+    
+    this.casesByCountries.forEach(element => {
+      if(element.population >= 100000) {
+        element.sumOfConfirms = 
+          element.sumOfConfirms / element.population * 100000;
+        element.sumOfDeaths =
+          element.sumOfDeaths / element.population * 100000;
+        element.sumOfRecovers = 
+          element.sumOfRecovers / element.population * 100000;
+        this.per100000.push(element);
+      }
+    });
+  }
+
+  private copyArray(original: any[], copy: any[]): void { 
+    original.forEach(e => copy.push(Object.assign({}, e)));
+  }
+
   public confirmColumnNamesChart: any[] = ['Country', 'Confirmed in 100 000'];
   public columnChart = "ColumnChart";
   public confirmDataChart = [];
@@ -59,20 +80,17 @@ export class VisualizationComponent implements OnInit {
   }
 
   private setColumnConfirmChartData(): void {
-    let per100000: Country[] = [];
-    
-    this.casesByCountries.forEach(element => {
-      if(element.population >= 100000) {
-        element.sumOfConfirms = 
-          element.sumOfConfirms / element.population * 100000;
-        per100000.push(element);
-      }
-    });
 
-    this.sort.sortBySumOfConfirmedDESC(per100000);
+    if (this.per100000 == null)
+      this.calculatePer100000();
+    
+    let data: Country[] = [];
+    this.copyArray(this.per100000, data);
+
+    this.sort.sortBySumOfConfirmedDESC(data);
 
     for(let i = 0; i < 10; i++) {
-      let element: Country = per100000[i];
+      let element: Country = data[i];
       this.confirmDataChart.push([element.countryName, element.sumOfConfirms]);
     }
   }
@@ -80,20 +98,17 @@ export class VisualizationComponent implements OnInit {
   public recoveredColumnNames: any[] = ['Country', 'Recovered in 100 000'];
   public recoveredDataChart: any[] = [];
   private setRecoveredChartData(): void {
-    let per100000: Country[] = [];
 
-    this.casesByCountries.forEach(element => {
-      if(element.population >= 100000) {
-        element.sumOfRecovers = 
-          element.sumOfRecovers / element.population * 100000;
-        per100000.push(element);
-      }
-    });
+    if (this.per100000 == null)
+      this.calculatePer100000();
+    
+    let data: Country[] = [];
+    this.copyArray(this.per100000, data);
 
-    this.sort.sortBySumOfRecoversDESC(per100000);
+    this.sort.sortBySumOfRecoversDESC(data);
     
     for(let i = 0; i < 10; i++) {
-      let element: Country = per100000[i];
+      let element: Country = data[i];
       this.recoveredDataChart.push([
         element.countryName,
         element.sumOfRecovers
@@ -104,19 +119,16 @@ export class VisualizationComponent implements OnInit {
   public deathsColumnNames: any[] = ['Country', 'Deaths per 100 000'];
   public deathsDataChart: any[] = [];
   private setDeathsChartData(): void {
-    let per100000: Country[] = [];
 
-    this.casesByCountries.forEach(element => {
-      if (element.population >= 100000) {
-        element.sumOfDeaths = 
-          element.sumOfDeaths / element.population * 100000;
-          per100000.push(element);
-      }
-    });
+    if(this.per100000 == null)
+      this.calculatePer100000();
+    
+    let data: Country[] = [];
+    this.copyArray(this.per100000, data);
 
-    this.sort.sortBySumOfDeathsDESC(per100000);
+    this.sort.sortBySumOfDeathsDESC(data);
     for(let i = 0; i < 10; i++) {
-      let element: Country = per100000[i];
+      let element: Country = data[i];
       this.deathsDataChart.push([
         element.countryName,
         element.sumOfDeaths
