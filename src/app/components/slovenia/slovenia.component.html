@@ -1,0 +1,97 @@
+<div class="container.fluid">
+    <div class="row row-margin">
+        <h2>
+            Covid-19 v Sloveniji
+        </h2>
+    </div>
+    <hr class="row-margin">
+
+    <div class="row row-margin">
+        <div class="col-md-6 col-lg-6 col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        Testiranja
+                    </h4>
+                    <app-chart
+                        [type] = "'ComboChart'"
+                        [data] = "testsChartData"
+                        [options] = "testsChartOptions"
+                        [columnNames] = "testsColumnNames"
+                    >
+                    </app-chart>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        Pozitivni testi
+                    </h4>
+                    <app-chart
+                        [type] = "'ComboChart'"
+                        [data] = "positiveTestsChartData"
+                        [options] = "testsChartOptions"
+                        [columnNames] = "positiveTestsColumnNames"
+                    >
+                    </app-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-margin">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        Hospitalizirani
+                    </h4>
+                    <app-chart
+                        [type] = "'LineChart'"
+                        [data] = "hospitalChartData"
+                        [options] = "lineChartOptions"
+                        [columnNames] = "hospitalColumnNames"
+                    >
+                    </app-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-margin">
+        <div class="col-md-6 col-lg-6 col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        Po starosti
+                    </h4>
+                    <app-chart
+                        [type] = "'ColumnChart'"
+                        [data] = "ageGroupsChartData"
+                        [columnNames] = "ageGroupsChartColumnNames"
+                        [options] = "ageGroupsChartOptions"
+                    >
+                    </app-chart>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        Po regijah
+                    </h4>
+                    <app-chart
+                        [type] = "'PieChart'"
+                        [data] = "regionsChartData"
+                        [columnNames] = "regionsChartColumnNames"
+                        [options] = "regionsChartOptions"
+                    >
+                    </app-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

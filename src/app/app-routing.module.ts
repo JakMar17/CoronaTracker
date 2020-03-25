@@ -6,6 +6,7 @@ import { WorldComponent } from "./components/world/world.component";
 import { AppComponent } from "./app.component";
 import { AboutComponent } from './components/about/about.component';
 import { VisualizationComponent } from './components/visualization/visualization.component';
+import { SloveniaComponent } from './components/slovenia/slovenia.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path:"visualization",
     component: VisualizationComponent
+  },
+  {
+    path:"slovenia",
+    component: SloveniaComponent
   }
 ];
 

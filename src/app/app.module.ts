@@ -26,6 +26,7 @@ import { MapComponent } from './components/map/map.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { AboutComponent } from './components/about/about.component';
 import { VisualizationComponent } from './components/visualization/visualization.component';
+import { SloveniaComponent } from './components/slovenia/slovenia.component';
 
 // the second parameter 'fr-FR' is optional
 registerLocaleData(localeSl, 'sl-SL');
@@ -45,7 +46,8 @@ registerLocaleData(localeSl, 'sl-SL');
     MapComponent,
     ChartComponent,
     AboutComponent,
-    VisualizationComponent
+    VisualizationComponent,
+    SloveniaComponent
   ],
   imports: [
     BrowserModule,

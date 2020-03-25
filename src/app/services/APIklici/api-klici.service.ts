@@ -10,6 +10,7 @@ export class ApiKliciService {
 
   private baseURL: string = "https://covid19.mathdro.id/api/";
   private baseURLCountries = "https://restcountries.eu/rest/v2/";
+  private baseURLSLovenia = "https://covid19.rthand.com/api/";
 
   public getAll(): Promise<any[]> {
     let url: string = this.baseURL + "confirmed";
@@ -55,6 +56,30 @@ export class ApiKliciService {
         data => data as any
       )
       .catch(this.obdelajNapako)
+  }
+
+  public getPatientsSlovenia(): Promise<any> {
+    let url: string = this.baseURLSLovenia + "patients";
+
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(
+        data => data as any
+      )
+      .catch(this.obdelajNapako);
+  }
+
+  public getStatsSlovenia(): Promise<any> {
+    let url: string = this.baseURLSLovenia + "stats";
+
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(
+        data => data as any
+      )
+      .catch(this.obdelajNapako);
   }
 
   private obdelajNapako(napaka: any): Promise<any> {
