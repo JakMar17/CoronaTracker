@@ -15,6 +15,8 @@ export class SloveniaComponent implements OnInit {
     private apiCalls: ApiKliciService
   ) { }
 
+  public showChart: boolean = false;
+
   public patientsSLO: PatientsSlo[];
   public statsSlo: StatsSlo[];
 
@@ -140,7 +142,9 @@ export class SloveniaComponent implements OnInit {
       ["Slovenj Gradec", last.statePerRegion.sg],
       ["Nedoločeno", last.statePerRegion.unknown],
       ["Zagorje", last.statePerRegion.za]
-    )
+    );
+
+    this.showChart = true;
   }
 
 }

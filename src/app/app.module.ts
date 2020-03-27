@@ -27,6 +27,8 @@ import { ChartComponent } from './components/chart/chart.component';
 import { AboutComponent } from './components/about/about.component';
 import { VisualizationComponent } from './components/visualization/visualization.component';
 import { SloveniaComponent } from './components/slovenia/slovenia.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 // the second parameter 'fr-FR' is optional
 registerLocaleData(localeSl, 'sl-SL');
@@ -56,7 +58,8 @@ registerLocaleData(localeSl, 'sl-SL');
     NgbModule,
     HttpClientModule,
     FormsModule,
-    GoogleChartsModule.forRoot('AIzaSyCGmkFP4iiLmzYu2tnB2K9gf_qGE3F8KYk')
+    GoogleChartsModule.forRoot('AIzaSyCGmkFP4iiLmzYu2tnB2K9gf_qGE3F8KYk'),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

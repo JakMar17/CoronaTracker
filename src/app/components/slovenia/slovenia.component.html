@@ -13,7 +13,7 @@
                     <h4 class="card-title">
                         Testiranja
                     </h4>
-                    <app-chart
+                    <app-chart *ngIf="showChart"
                         [type] = "'ComboChart'"
                         [data] = "testsChartData"
                         [options] = "testsChartOptions"
@@ -29,7 +29,7 @@
                     <h4 class="card-title">
                         Pozitivni testi
                     </h4>
-                    <app-chart
+                    <app-chart *ngIf="showChart"
                         [type] = "'ComboChart'"
                         [data] = "positiveTestsChartData"
                         [options] = "testsChartOptions"
@@ -48,7 +48,7 @@
                     <h4 class="card-title">
                         Hospitalizirani
                     </h4>
-                    <app-chart
+                    <app-chart *ngIf="showChart"
                         [type] = "'LineChart'"
                         [data] = "hospitalChartData"
                         [options] = "lineChartOptions"
@@ -67,7 +67,7 @@
                     <h4 class="card-title">
                         Po starosti
                     </h4>
-                    <app-chart
+                    <app-chart *ngIf="showChart"
                         [type] = "'ColumnChart'"
                         [data] = "ageGroupsChartData"
                         [columnNames] = "ageGroupsChartColumnNames"
@@ -83,7 +83,7 @@
                     <h4 class="card-title">
                         Po regijah
                     </h4>
-                    <app-chart
+                    <app-chart *ngIf="showChart"
                         [type] = "'PieChart'"
                         [data] = "regionsChartData"
                         [columnNames] = "regionsChartColumnNames"
