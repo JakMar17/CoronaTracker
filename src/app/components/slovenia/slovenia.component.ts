@@ -20,6 +20,9 @@ export class SloveniaComponent implements OnInit {
   public patientsSLO: PatientsSlo[];
   public statsSlo: StatsSlo[];
 
+  public sloStatsYesterday: StatsSlo;
+  public sloStatsPreYesterday: StatsSlo;
+
   private getPatientDistribution(): void {
     this.apiCalls.getPatientsSlovenia().then(
       (data) => {
@@ -94,25 +97,30 @@ export class SloveniaComponent implements OnInit {
   private setStatsChartData(): void {
 
     let last: StatsSlo;
+    let preLast: StatsSlo;
 
     this.statsSlo.forEach(element => {
       let tempTests: any[] = [
         (element.day + "." + element.month),
-        element.performedTestsToDate,
-        element.performedTests
+        (element.performedTestsToDate != null ? element.performedTestsToDate : element.testsAt14.performedToDate),
+        (element.performedTests != null ? element.performedTests : element.testsAt14.performed)
       ];
 
       let tempPositives: any[] = [
         (element.day + "." + element.month),
-        element.positiveTestsToDate,
-        element.positiveTests
+        (element.positiveTestsToDate != null ? element.positiveTestsToDate : element.testsAt14.positiveToDate),
+        (element.positiveTests != null ? element.positiveTests : element.testsAt14.positive)
       ];
 
       this.testsChartData.push(tempTests);
       this.positiveTestsChartData.push(tempPositives);
 
+      preLast = last;
       last = element;
     });
+
+    this.sloStatsYesterday = last;
+    this.sloStatsPreYesterday = preLast;
 
     last.statePerAgeToDate.forEach(element => {
       if (element.allToDate) {

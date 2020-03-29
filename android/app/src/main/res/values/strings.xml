@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">CoronaTracker</string>
+    <string name="title_activity_main">CoronaTracker</string>
+    <string name="package_name">si.aptsystems.jakmar17</string>
+    <string name="custom_url_scheme">si.aptsystems.jakmar17</string>
+</resources>

@@ -1,0 +1,25 @@
+[debug] [2020-03-28T20:54:17.446Z] ----------------------------------------------------------------------
+[debug] [2020-03-28T20:54:17.449Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\jakob\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-03-28T20:54:17.449Z] CLI Version:   7.15.0
+[debug] [2020-03-28T20:54:17.449Z] Platform:      win32
+[debug] [2020-03-28T20:54:17.449Z] Node Version:  v12.13.1
+[debug] [2020-03-28T20:54:17.450Z] Time:          Sat Mar 28 2020 21:54:17 GMT+0100 (GMT+01:00)
+[debug] [2020-03-28T20:54:17.450Z] ----------------------------------------------------------------------
+[debug] [2020-03-28T20:54:17.450Z] 
+[debug] [2020-03-28T20:54:17.459Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-28T20:54:17.459Z] > authorizing via signed-in user
+[debug] [2020-03-28T20:54:17.459Z] [iam] checking project tracking-corona for permissions ["firebase.projects.get"]
+[debug] [2020-03-28T20:54:17.462Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tracking-corona:testIamPermissions  
+
+[debug] [2020-03-28T20:54:18.375Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-28T20:54:18.378Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tracking-corona  
+ 
+[debug] [2020-03-28T20:54:18.704Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\jakob\Documents\angular\CoronaTracker'...
+[info] 
+[debug] [2020-03-28T20:54:18.709Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tracking-corona/webApps/-/config  
+ 
+[debug] [2020-03-28T20:54:19.253Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./dist/myapp/
+[info] +  hosting: Local server: http://localhost:5000

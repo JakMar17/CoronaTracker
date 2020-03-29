@@ -1,0 +1,8 @@
+{
+  "appId": "si.aptsystems.jakmar17",
+  "appName": "CoronaTracker",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "./dist/myapp",
+  "cordova": {}
+}

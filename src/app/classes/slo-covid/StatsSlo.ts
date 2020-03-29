@@ -1,5 +1,6 @@
 import { StatsPerRegionSlo } from './StatsPerRegionSlo';
 import { StatsPerAgeGroupSlo } from './StatsPerAgeGroupSlo';
+import { OldTests } from './OldTests';
 
 export class StatsSlo {
     dayFromStart: number;
@@ -13,4 +14,5 @@ export class StatsSlo {
     positiveTests: number;
     statePerAgeToDate: StatsPerAgeGroupSlo[];
     statePerRegion: StatsPerRegionSlo;
+    testsAt14: OldTests;
 }
